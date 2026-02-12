@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>To Do</title>
+</head>
+<body>
+
+    <h2>To Do</h2>
+
+    <label>Tarea:</label>
+    <input type="text" id="tareaInput">
+    <button onclick="agregarTarea()">Agregar</button>
+
+    <ul id="listaTareas"></ul>
+
+    <script>
+
+        function agregarTarea() {
+    let input = document.getElementById("tareaInput");
+    let textoTarea = input.value;
+
+    if (textoTarea === "") {
+        alert("Escribe una tarea");
+        return;
+    }
+
+    let li = document.createElement("li");
+    li.textContent = textoTarea;
+
+    document.getElementById("listaTareas").appendChild(li);
+
+}
+
+    </script>
+</body>
+</html>
