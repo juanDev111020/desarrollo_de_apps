@@ -1,0 +1,38 @@
+<div style="max-width: 500px; margin: 30px auto; padding: 20px; border: 1px solid #ccc; border-radius: 8px;">
+  <h2>Lista de Tareas (To-Do)</h2>
+
+  <div style="display: flex; margin-bottom: 20px;">
+    <input 
+      [(ngModel)]="newTask"
+      placeholder="Escribe una nueva tarea..."
+      style="flex: 1; padding: 10px; font-size: 16px;"
+    />
+    <button 
+      (click)="addTask()"
+      style="padding: 10px 20px; margin-left: 10px; background-color: #4CAF50; color: white; border: none; cursor: pointer;"
+    >
+      Agregar
+    </button>
+  </div>
+
+  <ul style="list-style: none; padding: 0;">
+    <li *ngFor="let task of tasks" 
+        style="padding: 12px; background: #f9f9f9; margin-bottom: 8px; border-radius: 4px; display: flex; justify-content: space-between; align-items: center;">
+      {{ task }}
+    </li>
+  </ul>
+
+  @if (tasks.length > 0) {
+  <button 
+    (click)="clearTasks()"
+    style="margin-top: 20px; padding: 10px 20px; background-color: #f44336; color: white; border: none; cursor: pointer; width: 100%;">
+    Eliminar toda la lista
+  </button>
+}
+
+@if (tasks.length === 0) {
+  <p style="text-align: center; color: #777; margin-top: 30px;">
+    No hay tareas aún. ¡Agrega una!
+  </p>
+}
+</div>
